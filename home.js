@@ -53,6 +53,10 @@ document.getElementById("add-money-btn").addEventListener("click", function(e){
     const bank = getInputValue ("bank")
     const accountNumber = getInputValue("bank-account")
     const amountAdd = getInputValueNumber("amount")
+    if(amountAdd<=0){
+      alert("invalid amount")
+      return;
+    }
     const pinAdd = getInputValueNumber("pin")
     const availableBalance = getInnerText("available-balance")
     if(accountNumber.length < 6){
@@ -81,6 +85,10 @@ const agentNumber = getInputValue("agent-number")
 const pinAdd = getInputValueNumber("withdrew-pin")
 const amount = getInputValueNumber("withdrew-amount")
 const availableBalance = getInnerText("available-balance")
+if(amount<=0 || amount>availableBalance){
+  alert("invalid amount")
+  return
+}
 if(agentNumber.length < 6){
         alert("please provide a valid account number")
         return;
